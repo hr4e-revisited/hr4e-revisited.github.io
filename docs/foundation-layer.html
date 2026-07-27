@@ -1,68 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/assets/css/site.css" />
   <meta charset="UTF-8" />
   <title>HR4E Foundation Layer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
 </head>
 <body>
-  <header style="margin-bottom:2rem;">
+<header style="margin-bottom:2rem;">
 
-    <!-- Top row: Logo + Title -->
-    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-      <img src="/assets/img/hr4e-logo.jpeg"
-           alt="HR4E Logo"
-           style="width:120px; height:auto;" />
-
-      <div>
-        <div style="font-size:1.8rem; font-weight:600; color:#1f4b99;">
-          Health Records for Everyone
-        </div>
-        <div style="font-size:1.2rem; font-weight:400; color:#1f4b99;">
-          (hr4e-revisited)
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom row: Navigation -->
-    <nav style="display:flex; gap:1.5rem; font-size:1rem;">
-      <a href="/" style="text-decoration:none; color:#1f4b99;">Home</a>
-      <a href="/docs/foundation-layer.html" style="text-decoration:none; color:#1f4b99;">Foundation Layer</a>
-      <a href="/docs/vaults.html" style="text-decoration:none; color:#1f4b99;">Vault Spec</a>
-      <a href="/projects/index.html" style="text-decoration:none; color:#1f4b99;">Projects</a>
-      <a href="/docs/history.html" style="text-decoration:none; color:#1f4b99;">History</a>
-      <a href="/docs/contribute.html" style="text-decoration:none; color:#1f4b99;">Contribute</a>
-    </nav>
-
-  </header>
-
-  <section>
-    <h2>Overview</h2>
-    <p>
-      The foundation layer defines the core artifacts and flows that all HR4E deployments share:
-      vault format, studio behavior, extractor/loader contracts, and billing/reporting primitives.
-    </p>
-  </section>
-
-  <section>
-    <h2>Components</h2>
-    <ul>
-      <li>Vault specification (document types, metadata, FHIR mapping).</li>
-      <li>Studio web-app (Editor/Viewer, Extractor/Loader, Analyzer/Reporter).</li>
-      <li>Deployment profiles (clinic, school, relief setting).</li>
-    </ul>
-  </section>
-
-  <footer style="display:flex; align-items:center; margin-top:3rem; padding-top:1rem; border-top:1px solid #ddd; gap:0.75rem;">
+  <!-- Top row: Logo + Title -->
+  <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
     <img src="/assets/img/hr4e-logo.jpeg"
          alt="HR4E Logo"
-         style="width:60px; height:auto;" />
+         style="width:120px; height:auto;" />
 
-    <div style="font-size:0.9rem; color:#666;">
-      © 2010–2026 Health Records for Everyone (HR4E)
+    <div>
+      <div style="font-size:1.8rem; font-weight:600; color:#1f4b99;">
+        Health Records for Everyone
+      </div>
+      <div style="font-size:1.2rem; font-weight:400; color:#1f4b99;">
+        (hr4e-revisited)
+      </div>
     </div>
-  </footer>
+  </div>
+
+  <!-- Bottom row: Navigation -->
+  <nav style="display:flex; gap:1.5rem; font-size:1rem;">
+    <a href="/" style="text-decoration:none; color:#1f4b99;">Home</a>
+    <a href="/docs/foundation-layer.html" style="text-decoration:none; color:#1f4b99;">Foundation Layer</a>
+    <a href="/docs/vaults.html" style="text-decoration:none; color:#1f4b99;">Vault Spec</a>
+    <a href="/projects/index.html" style="text-decoration:none; color:#1f4b99;">Projects</a>
+    <a href="/docs/history.html" style="text-decoration:none; color:#1f4b99;">History</a>
+    <a href="/docs/contribute.html" style="text-decoration:none; color:#1f4b99;">Contribute</a>
+  </nav>
+
+</header>
+
+<!-- FOUNDATION OVERVIEW -->
+<section class="section">
+  <h2>Foundation Overview</h2>
+  <p>
+    The HR4E Foundation Layer defines the core artifacts, conventions, and architectural principles
+    that make HR4E deployments portable, secure, and interoperable across clinics, schools, and
+    relief settings. It provides a stable base upon which tools such as the Studio, Extractor/Loader,
+    and mobile apps can be built and extended.
+  </p>
+  <p>
+    The “hr4e-revisited” relaunch (2026) modernizes the original 2010 HR4E mission using contemporary
+    web technologies, AI-assisted development, and portable vault formats that support both personal
+    and clinic-level workflows.
+  </p>
+</section>
+
+<!-- CORE ARTIFACTS -->
+<section class="section">
+  <h2>Core Artifacts</h2>
+  <p>
+    The HR4E Foundation Layer consists of several key components:
+  </p>
+  <ul>
+    <li>
+      <strong>Vaults</strong> — portable directories containing HR4E CCD-subset documents and optional
+      SQLite metadata. See the full specification in
+      <a href="/docs/vaults.html" style="color:#1f4b99;">Vault Spec</a>.
+    </li>
+    <li>
+      <strong>Studio</strong> — a web-based environment for viewing, editing, aggregating, and
+      transforming vault contents.
+    </li>
+    <li>
+      <strong>Extractor/Loader</strong> — tools that populate vaults from existing EHR systems
+      (Epic and others), using HIPAA-safe patterns and configurable profiles.
+    </li>
+    <li>
+      <strong>Analyzer/Reporter</strong> — tools for summarizing vault contents, generating reports,
+      and supporting school or clinic-level analytics.
+    </li>
+    <li>
+      <strong>Biller/Bookkeeper</strong> — lightweight billing and ledger tools designed for small
+      clinics and franchisable medical microbusinesses.
+    </li>
+  </ul>
+</section>
+
+<!-- DESIGN PRINCIPLES -->
+<section class="section">
+  <h2>Design Principles</h2>
+  <p>
+    The Foundation Layer is guided by several core principles:
+  </p>
+  <ul>
+    <li><strong>Portability</strong> — vaults can be carried by patients or moved between clinics.</li>
+    <li><strong>Offline-first</strong> — tools must work in low-connectivity or no-connectivity environments.</li>
+    <li><strong>PHI safety</strong> — filenames are PHI-free; encryption protects vault contents between uses.</li>
+    <li><strong>Interoperability</strong> — CCD-subset documents map cleanly to FHIR-like structures.</li>
+    <li><strong>Low-overhead deployment</strong> — tools must be usable by small clinics and relief teams.</li>
+  </ul>
+</section>
+
+<!-- ARCHITECTURE DIAGRAM -->
+<section class="section">
+  <h2>Architecture Diagram</h2>
+  <p>
+    The HR4E architecture centers around vaults as the portable data unit, with tools layered around
+    them to support creation, editing, extraction, aggregation, and reporting. A simplified conceptual
+    diagram is shown below:
+  </p>
+
+  <pre style="background:#f7f7f7; padding:1rem; border-radius:6px;">
+[ HR4E Vault ]
+     |
+     +-- Editor/Viewer (Studio)
+     |
+     +-- Extractor/Loader (EHR → Vault)
+     |
+     +-- Analyzer/Reporter (Vault → Summaries)
+     |
+     +-- Biller/Bookkeeper (Vault → Ledger)
+    </pre>
+
+  <p>
+    Each component is designed to operate independently or as part of an integrated workflow.
+  </p>
+</section>
+
+<!-- RELATIONSHIP TO 2010 MISSION -->
+<section class="section">
+  <h2>Relationship to the 2010 HR4E Mission</h2>
+  <p>
+    HR4E was founded in 2010 to support clinicians working in overseas mobile clinics and relief
+    settings. The original prototype generated HL7 CCDs for documenting school health assessments
+    and produced more than 1,700 structured documents during a 2011 deployment.
+  </p>
+  <p>
+    The Foundation Layer preserves the spirit of that mission — portable, structured documentation
+    for resource-poor settings — while modernizing the technical approach using AI-assisted
+    development, web technologies, and secure vault formats.
+  </p>
+  <p>
+    For a full historical narrative, see the
+    <a href="/docs/history.html" style="color:#1f4b99;">HR4E History</a> page.
+  </p>
+</section>
+
+<!-- ROADMAP -->
+<section class="section">
+  <h2>Roadmap</h2>
+  <p>
+    The HR4E Foundation Layer will evolve over time as tools mature and pilot deployments expand.
+    Current roadmap items include:
+  </p>
+  <ul>
+    <li>
+      <strong>Mobile Editor/Viewer apps</strong> (iOS first, then Android) supporting offline vault
+      creation and USB-based eHP workflows.
+    </li>
+    <li>
+      <strong>HIPAA-safe Extractor/Loader</strong> using Azure OpenAI and configurable EHR profiles.
+    </li>
+    <li>
+      <strong>Franchise-ready billing tools</strong> for small clinics and microbusinesses.
+    </li>
+    <li>
+      <strong>Pilot deployments</strong> in rural schools, small clinics, and Ireland/Northern Ireland
+      interoperability contexts.
+    </li>
+    <li>
+      <strong>Expanded documentation</strong> including developer guides, API references, and
+      internationalization support.
+    </li>
+  </ul>
+</section>
+
+<footer style="display:flex; align-items:center; margin-top:3rem; padding-top:1rem; border-top:1px solid #ddd; gap:0.75rem;">
+  <img src="/assets/img/hr4e-logo.jpeg"
+       alt="HR4E Logo"
+       style="width:60px; height:auto;" />
+
+  <div style="font-size:0.9rem; color:#666;">
+    © 2010–2026 Health Records for Everyone (HR4E)
+  </div>
+</footer>
 
 </body>
 </html>
