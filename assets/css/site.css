@@ -1,0 +1,66 @@
+/* ------------------------------
+   Global typography & layout
+   ------------------------------ */
+
+body {
+    background: #fafafa;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 2rem;
+    max-width: 900px;
+    line-height: 1.55;
+    color: #333;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #1f4b99;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+    color: #1f4b99;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation bar */
+nav a {
+    font-size: 1rem;
+    padding: 0.25rem 0;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+/* Code blocks / preformatted */
+pre {
+    background: #f7f7f7;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 0.95rem;
+}
+
+/* Lists */
+ul {
+    margin-left: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Horizontal spacing helpers */
+.section {
+    margin-bottom: 2.5rem;
+}
