@@ -6,19 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-  <header>
-    <img src="/assets/img/hr4e-logo.jpeg" alt="HR4E Logo" style="width:120px; margin-bottom:1rem;" />
-    <h1>Health Records for Everyone (hr4e-revisited)</h1>
-    <p>Portable, patient-centered health records for clinics, schools, and relief settings.</p>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/docs/foundation-layer.html">Foundation Layer</a>
-      <a href="/docs/vaults.html">Vault Spec</a>
-      <a href="/projects/index.html">Projects</a>
-      <a href="/docs/history.html">History</a>
-      <a href="/docs/contribute.html">Contribute</a>
+  <header style="display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem;">
+
+    <!-- Left side: Logo + Title -->
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <img src="/assets/img/hr4e-logo.jpeg"
+           alt="HR4E Logo"
+           style="width:120px; height:auto;" />
+
+      <div>
+        <div style="font-size:1.8rem; font-weight:600; color:#1f4b99;">
+          Health Records for Everyone
+        </div>
+        <div style="font-size:1.2rem; font-weight:400; color:#1f4b99;">
+          (hr4e-revisited)
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side: Navigation -->
+    <nav style="display:flex; gap:1.5rem; font-size:1rem;">
+      <a href="/" style="text-decoration:none; color:#1f4b99;">Home</a>
+      <a href="/docs/foundation-layer.html" style="text-decoration:none; color:#1f4b99;">Foundation Layer</a>
+      <a href="/docs/vaults.html" style="text-decoration:none; color:#1f4b99;">Vault Spec</a>
+      <a href="/projects/index.html" style="text-decoration:none; color:#1f4b99;">Projects</a>
+      <a href="/docs/history.html" style="text-decoration:none; color:#1f4b99;">History</a>
+      <a href="/docs/contribute.html" style="text-decoration:none; color:#1f4b99;">Contribute</a>
     </nav>
+
   </header>
+
 
   <section>
     <h2>Overview</h2>
@@ -37,9 +54,14 @@
     </ul>
   </section>
 
-  <footer>
-    <img src="/assets/img/hr4e-logo.jpeg" alt="HR4E Logo" style="width:60px;" />
-    <p>&copy; 2010–2026 Health Records for Everyone (HR4E)</p>
+  <footer style="display:flex; justify-content:space-between; align-items:center; margin-top:3rem; padding-top:1rem; border-top:1px solid #ddd;">
+    <div style="font-size:0.9rem; color:#666;">
+      © 2010–2026 Health Records for Everyone (HR4E)
+    </div>
+
+    <img src="/assets/img/hr4e-logo.jpeg"
+         alt="HR4E Logo"
+         style="width:60px; height:auto;" />
   </footer>
 
 </body>
