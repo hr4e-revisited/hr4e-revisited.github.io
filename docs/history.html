@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HR4E History</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+<header style="margin-bottom:2rem;">
+
+    <!-- Top row: Logo + Title -->
+    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+        <img src="/assets/img/hr4e-logo.jpeg"
+             alt="HR4E Logo"
+             style="width:120px; height:auto;" />
+
+        <div>
+            <div style="font-size:1.8rem; font-weight:600; color:#1f4b99;">
+                Health Records for Everyone
+            </div>
+            <div style="font-size:1.2rem; font-weight:400; color:#1f4b99;">
+                (hr4e-revisited)
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom row: Navigation -->
+    <nav style="display:flex; gap:1.5rem; font-size:1rem;">
+        <a href="/" style="text-decoration:none; color:#1f4b99;">Home</a>
+        <a href="/docs/foundation-layer.html" style="text-decoration:none; color:#1f4b99;">Foundation Layer</a>
+        <a href="/docs/vaults.html" style="text-decoration:none; color:#1f4b99;">Vault Spec</a>
+        <a href="/projects/index.html" style="text-decoration:none; color:#1f4b99;">Projects</a>
+        <a href="/docs/history.html" style="text-decoration:none; color:#1f4b99;">History</a>
+        <a href="/docs/contribute.html" style="text-decoration:none; color:#1f4b99;">Contribute</a>
+    </nav>
+
+</header>
+
+<section>
+    <h2>Origins and early work</h2>
+    <p>
+        Health Records for Everyone (HR4E) was founded in 2010 as a 501(c)(3) charitable organization,
+        inspired by clinicians working in overseas mobile clinics and relief settings, including Banda Aceh
+        after the tsunami and Haiti after the earthquake. As some of these groups transitioned into school
+        health assessments in resource-poor environments, it became clear that portable, structured
+        documentation was essential for understanding what had been accomplished and for planning follow-up care.
+    </p>
+    <p>
+        Working with a small group of university students, HR4E created a prototype system that generated
+        HL7 Continuity of Care Documents (CCDs) to document this work. In 2011, the prototype was used at a
+        school-based assessment project, producing more than 1,700 CCDs that were processed and returned to
+        the sponsoring organization, providing a clear view of the activities and findings from that effort.
+    </p>
+</section>
+
+<section>
+    <h2>Dormancy and continued technical work</h2>
+    <p>
+        Despite the successful pilot, the founding team was not able to sustain an open-source development
+        community around the prototype, and the organization gradually went dormant. The founder retired from
+        clinical practice but remained deeply involved in reporting and software development, focusing on
+        SQL-based analytics and data transformation.
+    </p>
+    <p>
+        Beginning in 2024, his work was transformed by the practical use of AI, which he began using daily
+        to craft and fine-tune SQL code and VBA routines to transform spreadsheet data alongside EHR-derived
+        extracts. This period laid much of the technical groundwork for a future revival of HR4E.
+    </p>
+</section>
+
+<section>
+    <h2>AI-driven revival and hr4e-revisited</h2>
+    <p>
+        In June 2026, the founder was inspired by a colleague who was using AI to help write code against
+        Epic via a live FHIR API, using a web-style stack with TypeScript, Vue, and Vuetify. Seeing how well
+        this approach worked, he adopted a similar pattern and, over the course of a few weeks, developed
+        prototypes of two components of the system he had long envisioned for HR4E.
+    </p>
+    <p>
+        Building on these prototypes, the founder is now working to create a suite of apps and tools that
+        can serve as an open-source foundation for HR4E: vaults, editors/viewers, extractors/loaders, and
+        related components that can be deployed in clinics, schools, and relief settings. In parallel, he is
+        exploring how to formally revive the charitable organization to support this renewed technical and
+        mission-driven work under the banner of hr4e-revisited.
+    </p>
+</section>
+
+<footer style="display:flex; align-items:center; margin-top:3rem; padding-top:1rem; border-top:1px solid #ddd; gap:0.75rem;">
+    <img src="/assets/img/hr4e-logo.jpeg"
+         alt="HR4E Logo"
+         style="width:60px; height:auto;" />
+
+    <div style="font-size:0.9rem; color:#666;">
+        © 2010–2026 Health Records for Everyone (HR4E)
+    </div>
+</footer>
+
+</body>
+</html>
