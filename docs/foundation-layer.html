@@ -99,6 +99,53 @@
   </ul>
 </section>
 
+<!-- ELECTRONIC HEALTH PASSPORT -->
+<section class="section">
+  <h2>Electronic Health Passport (eHP)</h2>
+  <p>
+    The HR4E electronic health passport (eHP) is the modern evolution of the paper health passports
+    long used in overseas clinics and mobile relief settings. Paper passports allowed patients to
+    personally carry their medical information between encounters, especially in environments where
+    electronic systems were unavailable or fragmented. The eHP preserves this idea while taking
+    advantage of today’s widespread mobile devices and secure biometric authentication.
+  </p>
+
+  <p>
+    Technically, an eHP is a <strong>personal HR4E vault</strong> carried by the patient. It contains
+    HR4E CCD‑subset documents and optional metadata in <code>vault-index.sqlite</code>, following the
+    same vault specification described in the
+    <a href="/docs/vaults.html" style="color:#1f4b99;">Vault Spec</a>. What distinguishes an eHP from
+    a clinic vault is how it is <strong>secured, synchronized, and used</strong> across encounters.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Offline-first</strong> — eHPs work even when connectivity is unavailable, making them
+      suitable for rural clinics, schools, and relief settings.
+    </li>
+    <li>
+      <strong>Not offline-only</strong> — whenever connectivity is available, patients and health
+      organizations can synchronize eHP contents to ensure a current backup exists.
+    </li>
+    <li>
+      <strong>Biometric security</strong> — modern mobile devices provide strong authentication
+      mechanisms (FaceID, TouchID, secure enclaves), enabling eHPs to remain encrypted whenever they
+      are stored between uses.
+    </li>
+    <li>
+      <strong>Portable and patient-centered</strong> — patients carry their own structured health
+      information, allowing continuity of care across clinics, schools, and relief teams.
+    </li>
+  </ul>
+
+  <p>
+    As HR4E tools mature, eHPs will support additional workflows such as encounter summaries,
+    immunization tracking, school health assessments, and cross-border care coordination. The
+    sequencing of encryption, decryption, and synchronization is under active development as part of
+    the HR4E Foundation Layer roadmap.
+  </p>
+</section>
+
 <!-- ARCHITECTURE DIAGRAM -->
 <section class="section">
   <h2>Architecture Diagram</h2>
@@ -111,11 +158,11 @@
   <pre style="background:#f7f7f7; padding:1rem; border-radius:6px;">
 [ HR4E Vault ]
      |
-     +-- Editor/Viewer (Studio)
+     +-- Editor/Viewer (eHP/Vault)
      |
      +-- Extractor/Loader (EHR → Vault)
      |
-     +-- Analyzer/Reporter (Vault → Summaries)
+     +-- Analyzer/Reporter (Vault → Reports)
      |
      +-- Biller/Bookkeeper (Vault → Ledger)
     </pre>
@@ -160,7 +207,7 @@
       <strong>HIPAA-safe Extractor/Loader</strong> using Azure OpenAI and configurable EHR profiles.
     </li>
     <li>
-      <strong>Franchise-ready billing tools</strong> for small clinics and microbusinesses.
+      <strong>Franchise-ready billing tools</strong> for small +/- mobile clinics and microbusinesses in resource-poor settings.
     </li>
     <li>
       <strong>Pilot deployments</strong> in efforts for supporting care between non-Epic and Epic-based sites.
