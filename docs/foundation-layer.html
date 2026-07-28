@@ -33,29 +33,28 @@
 <section class="section">
   <h2>Core Artifacts</h2>
   <p>
-    The HR4E Foundation Layer consists of several key components:
+    These components form the HR4E Foundation Layer — a minimal, portable architecture designed to
+    support small clinics, school-based health assessments, and resource-limited environments where
+    continuity of care depends on patient-carried records and low-overhead workflows.
   </p>
   <ul>
     <li>
-      <strong>Vaults</strong> — portable directories containing HR4E CCD-subset documents and optional
-      SQLite metadata. See the full specification in
-      <a href="/docs/vaults.html" style="color:#1f4b99;">Vault Spec</a>.
+      <strong>Vaults</strong> — portable, USB-friendly stores of HL7 CCD-format clinical documents.
     </li>
     <li>
-      <strong>Studio</strong> — a web-based environment for viewing, editing, aggregating, and
-      transforming vault contents.
+      <strong>Editor/Viewer</strong> — platform-specific apps for editing or viewing clinical documents from vaults.
     </li>
     <li>
-      <strong>Extractor/Loader</strong> — tools that populate vaults from existing EHR systems
-      (Epic and others), using HIPAA-safe patterns and configurable profiles.
+      <strong>Extractor/Loader</strong> — tools to populate vaults from existing EHRs (Epic ± others).
     </li>
     <li>
-      <strong>Analyzer/Reporter</strong> — tools for summarizing vault contents, generating reports,
-      and supporting school or clinic-level analytics.
+      <strong>Biller/Bookkeeper</strong> — simple tools to submit/record and track billing transactions for services documented in vaults; the foundation for franchise billing operations.
     </li>
     <li>
-      <strong>Biller/Bookkeeper</strong> — lightweight billing and ledger tools designed for small
-      clinics and franchisable medical microbusinesses.
+      <strong>Analyzer/Reporter</strong> — low-overhead reporting tools for small clinics and franchisees using data recorded in vaults.
+    </li>
+    <li>
+      <strong>Studio</strong> — a configurable web-based environment to access these tools with or without Internet access.
     </li>
   </ul>
 </section>
