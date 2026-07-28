@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>HR4E Studio</title>
+    <title>HR4E Studio Spec</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/assets/css/site.css" />
 </head>
@@ -15,28 +15,52 @@
 </header>
 
 <section class="section">
-    <h2>HR4E Studio</h2>
-    <p>
-        HR4E Studio is a web-based environment for working with HR4E vaults. The current alpha version
-        provides an Editor/Viewer for CCD-subset documents and a deterministic Extractor/Loader for
-        generating vault contents from structured inputs. Studio is not yet modular, but it serves as a
-        functional prototype for the broader HR4E toolchain.
-    </p>
+    <h2>Studio Spec</h2>
 
     <p>
-        The Studio source code is available in the HR4E GitHub organization:
+        HR4E Studio is the web-based environment for working with HR4E vaults. It provides a unified place
+        to view, edit, extract, and eventually analyze vault contents. Studio is designed to operate
+        offline-first, but not offline-only, allowing clinicians and patients to work with vaults even
+        when connectivity is limited while still supporting synchronization when available.
     </p>
 
+    <h3>Current Capabilities (Alpha)</h3>
     <p>
-        <a href="https://github.com/hr4e-revisited/studio" style="color:#1f4b99;">
-            hr4e-revisited/studio
+        The present Studio implementation is an alpha version intended for early testers. It includes:
+    </p>
+    <ul>
+        <li><strong>Editor/Viewer</strong> — a basic interface for viewing and editing CCD-subset documents.</li>
+        <li><strong>Extractor/Loader</strong> — a deterministic tool for generating vault contents from structured inputs.</li>
+    </ul>
+    <p>
+        The current design is not yet modular. Editor/Viewer and Extractor/Loader are implemented as
+        tightly coupled components, suitable for prototyping but not for long-term extensibility.
+    </p>
+
+    <h3>Relationship to the Foundation Layer</h3>
+    <p>
+        Studio corresponds to the “configurable web-based environment” described in the HR4E Foundation
+        Layer. Over time, Studio will integrate additional tools — Analyzer/Reporter, Biller/Bookkeeper,
+        and modular Extractor/Loader profiles — providing a single interface for working with vaults
+        across clinics, schools, and patient-carried eHP workflows.
+    </p>
+
+    <h3>Future Roadmap</h3>
+    <ul>
+        <li>Modular tool architecture (Editor, Extractor, Reporter, Biller as independent modules)</li>
+        <li>Offline-first synchronization workflows for eHP and clinic vaults</li>
+        <li>Configurable Extractor/Loader profiles for different EHR systems</li>
+        <li>Support for encounter summaries, immunization tracking, and school health workflows</li>
+    </ul>
+
+    <h3>GitHub Repository</h3>
+    <p>
+        The current alpha version of Studio is available here:
+    </p>
+    <p>
+        <a href="https://github.com/hr4e-revisited/studio-web" style="color:#1f4b99;">
+            hr4e-revisited/studio-web
         </a>
-    </p>
-
-    <p>
-        Over time, Studio will evolve into a configurable, offline-first environment supporting modular
-        tools for editing, extraction, reporting, and billing. The current version is intended for
-        developers and early testers who want to explore the HR4E Foundation Layer.
     </p>
 </section>
 
