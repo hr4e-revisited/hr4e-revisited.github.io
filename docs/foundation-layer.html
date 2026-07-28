@@ -19,28 +19,42 @@
   <p>
     The HR4E Foundation Layer defines the core artifacts, conventions, and architectural principles
     that make HR4E deployments portable, secure, and interoperable across clinics, schools, and
-    relief settings. It provides a stable base upon which tools such as the Studio, Extractor/Loader,
-    and mobile apps can be built and extended.
+    relief settings. It provides a stable base upon which tools such as Studio, Extractor/Loader,
+    Analyzer/Reporter, and mobile apps can be built and extended.
   </p>
   <p>
     The “hr4e-revisited” relaunch (2026) modernizes the original 2010 HR4E mission using contemporary
     web technologies, AI-assisted development, and portable vault formats that support both personal
     and clinic-level workflows.
   </p>
+  <p>
+    The Foundation Layer exists to give HR4E a stable, portable architecture that works in clinics,
+    schools, and resource-limited environments. It defines the minimal set of tools and conventions
+    needed to create, carry, synchronize, and analyze structured health records, whether used by
+    clinicians or patients themselves.
+  </p>
 </section>
 
-<!-- CORE ARTIFACTS -->
+<!-- GROUPED COMPONENTS -->
 <section class="section">
-  <h2>Core Artifacts</h2>
+  <h2>Core Components</h2>
+
+  <h3>Core Data Artifact</h3>
   <p>
-    These components form the HR4E Foundation Layer — a minimal, portable architecture designed to
-    support small clinics, school-based health assessments, and resource-limited environments where
-    continuity of care depends on patient-carried records and low-overhead workflows.
+    HR4E centers around a single portable data unit:
   </p>
   <ul>
     <li>
       <strong>Vaults</strong> — portable, USB-friendly stores of HL7 CCD-format clinical documents.
+      Vaults are the foundation for both clinic workflows and personal electronic health passports (eHPs).
     </li>
+  </ul>
+
+  <h3>Tools That Operate on Vaults</h3>
+  <p>
+    Surrounding the vault are tools that create, edit, extract, analyze, and support operational workflows:
+  </p>
+  <ul>
     <li>
       <strong>Editor/Viewer</strong> — platform-specific apps for editing or viewing clinical documents from vaults.
     </li>
@@ -48,10 +62,10 @@
       <strong>Extractor/Loader</strong> — tools to populate vaults from existing EHRs (Epic ± others).
     </li>
     <li>
-      <strong>Biller/Bookkeeper</strong> — simple tools to submit/record and track billing transactions for services documented in vaults; the foundation for franchise billing operations.
+      <strong>Analyzer/Reporter</strong> — low-overhead reporting tools for small clinics and franchisees using data recorded in vaults.
     </li>
     <li>
-      <strong>Analyzer/Reporter</strong> — low-overhead reporting tools for small clinics and franchisees using data recorded in vaults.
+      <strong>Biller/Bookkeeper</strong> — simple tools to submit/record and track billing transactions for services documented in vaults; the foundation for franchise billing operations.
     </li>
     <li>
       <strong>Studio</strong> — a configurable web-based environment to access these tools with or without Internet access.
@@ -59,18 +73,51 @@
   </ul>
 </section>
 
-<!-- DESIGN PRINCIPLES -->
+<!-- DESIGN PRINCIPLES + MOTIVATIONS -->
 <section class="section">
   <h2>Design Principles</h2>
   <p>
-    The Foundation Layer is guided by several core principles:
+    The Foundation Layer is guided by several core principles, each motivated by real-world constraints
+    encountered in rural clinics, school-based assessments, and cross-border care environments:
   </p>
   <ul>
-    <li><strong>Portability</strong> — vaults can be carried by patients or moved between clinics.</li>
-    <li><strong>Offline-first</strong> — tools must work in low-connectivity or no-connectivity environments.</li>
-    <li><strong>PHI safety</strong> — filenames are PHI-free; encryption protects vault contents between uses.</li>
-    <li><strong>Interoperability</strong> — CCD-subset documents map cleanly to FHIR-like structures.</li>
-    <li><strong>Low-overhead deployment</strong> — tools must be usable by small clinics and relief teams.</li>
+    <li>
+      <strong>Portability</strong> — vaults can be carried by patients or moved between clinics.
+      This supports continuity of care when electronic systems are fragmented or unavailable.
+    </li>
+    <li>
+      <strong>Offline-first</strong> — tools must work in low-connectivity or no-connectivity environments.
+      Many rural clinics and schools lack reliable Internet access.
+    </li>
+    <li>
+      <strong>PHI safety</strong> — filenames are PHI-free; encryption protects vault contents between uses.
+      Vaults may be physically carried by patients, so they must remain safe even if lost.
+    </li>
+    <li>
+      <strong>Interoperability</strong> — CCD-subset documents map cleanly to FHIR-like structures.
+      This supports cross-border care (e.g., Ireland/Northern Ireland) and non-Epic/Epic interoperability.
+    </li>
+    <li>
+      <strong>Low-overhead deployment</strong> — tools must be usable by small clinics and relief teams.
+      HR4E avoids enterprise infrastructure and focuses on lightweight, practical workflows.
+    </li>
+  </ul>
+</section>
+
+<!-- WHAT FOUNDATION LAYER DOES NOT INCLUDE -->
+<section class="section">
+  <h2>What the Foundation Layer Does Not Include</h2>
+  <p>
+    The Foundation Layer intentionally excludes several elements to keep HR4E portable, safe, and
+    usable in resource-limited environments:
+  </p>
+  <ul>
+    <li><strong>No centralized EHR</strong> — HR4E does not require or provide a cloud-based EHR.</li>
+    <li><strong>No cloud dependency</strong> — all tools operate offline-first; cloud sync is optional.</li>
+    <li><strong>No proprietary formats</strong> — vaults use open, inspectable CCD-subset documents.</li>
+    <li><strong>No PHI in filenames</strong> — vault structure is safe even if physically lost.</li>
+    <li><strong>No enterprise infrastructure</strong> — HR4E is designed for small clinics and mobile teams.</li>
+    <li><strong>No requirement for Epic or any specific EHR</strong> — Extractor/Loader profiles are configurable.</li>
   </ul>
 </section>
 

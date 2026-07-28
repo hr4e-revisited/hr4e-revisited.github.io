@@ -18,31 +18,88 @@
     <h2>Studio Spec</h2>
 
     <p>
-        HR4E Studio is the web-based environment for working with HR4E vaults. It provides a unified place
-        to view, edit, extract, and eventually analyze vault contents. Studio is designed to operate
-        offline-first, but not offline-only, allowing clinicians and patients to work with vaults even
-        when connectivity is limited while still supporting synchronization when available.
+        HR4E Studio is the web-based environment for working with HR4E vaults. It provides a unified
+        place to view, edit, extract, and eventually analyze vault contents. Studio is designed to
+        operate offline-first, but not offline-only, allowing clinicians and patients to work with
+        vaults even when connectivity is limited while still supporting synchronization when available.
+    </p>
+
+    <p>
+        The current Studio implementation is an alpha version intended for early testers. It is
+        functional but not yet modular, and it focuses on demonstrating the viability of a portable,
+        browser-based environment for HR4E workflows.
     </p>
 
     <h3>Current Capabilities (Alpha)</h3>
     <p>
-        The present Studio implementation is an alpha version intended for early testers. It includes:
+        The alpha version includes two tightly coupled components:
     </p>
     <ul>
-        <li><strong>Editor/Viewer</strong> — a basic interface for viewing and editing CCD-subset documents.</li>
-        <li><strong>Extractor/Loader</strong> — a deterministic tool for generating vault contents from structured inputs.</li>
+        <li>
+            <strong>Editor/Viewer</strong> — a basic interface for viewing and editing CCD-subset
+            documents stored in vaults.
+        </li>
+        <li>
+            <strong>Extractor/Loader</strong> — a deterministic tool for generating vault contents
+            from structured inputs. This prototype demonstrates how vaults can be populated without
+            requiring direct access to an EHR.
+        </li>
     </ul>
     <p>
-        The current design is not yet modular. Editor/Viewer and Extractor/Loader are implemented as
-        tightly coupled components, suitable for prototyping but not for long-term extensibility.
+        These components are implemented together in a single-page application. This design is
+        suitable for prototyping but will be replaced by a modular architecture as Studio matures.
     </p>
 
     <h3>Relationship to the Foundation Layer</h3>
     <p>
-        Studio corresponds to the “configurable web-based environment” described in the HR4E Foundation
-        Layer. Over time, Studio will integrate additional tools — Analyzer/Reporter, Biller/Bookkeeper,
-        and modular Extractor/Loader profiles — providing a single interface for working with vaults
-        across clinics, schools, and patient-carried eHP workflows.
+        Studio corresponds to the “configurable web-based environment” described in the HR4E
+        Foundation Layer. It is the primary interface through which clinicians, students, and
+        franchisees interact with vaults. Over time, Studio will integrate additional tools —
+        Analyzer/Reporter, Biller/Bookkeeper, and modular Extractor/Loader profiles — providing a
+        single interface for working with vaults across clinics, schools, and patient-carried eHP
+        workflows.
+    </p>
+
+    <h3>Authentication & Security (Alpha)</h3>
+    <p>
+        The alpha version of Studio uses Microsoft identity and OneDrive for authentication and
+        storage. This approach was chosen because it provides secure, standards-based authentication
+        without requiring HR4E to operate its own identity provider or maintain user credentials.
+    </p>
+
+    <p>
+        Studio is registered as an application in Azure Active Directory. Users authenticate using
+        the Microsoft Authentication Library (MSAL), which handles OAuth2 and OpenID Connect flows
+        directly in the browser. After authentication, Studio receives an access token that allows
+        it to read and write files in the user’s OneDrive.
+    </p>
+
+    <p>
+        This architecture provides several advantages:
+    </p>
+    <ul>
+        <li>
+            <strong>No HR4E-managed credentials</strong> — authentication is handled entirely by
+            Microsoft identity.
+        </li>
+        <li>
+            <strong>Secure storage</strong> — vaults stored in OneDrive benefit from Microsoft’s
+            encryption-at-rest and secure sync infrastructure.
+        </li>
+        <li>
+            <strong>Browser-only operation</strong> — MSAL enables authentication without requiring
+            a backend server, consistent with HR4E’s offline-first design.
+        </li>
+        <li>
+            <strong>Easy local development</strong> — developers can run Studio locally and still
+            authenticate using their Microsoft account.
+        </li>
+    </ul>
+
+    <p>
+        As Studio evolves, authentication will remain modular. Future versions may support local-only
+        vaults, USB-based eHP workflows, and optional cloud synchronization using OneDrive or other
+        providers.
     </p>
 
     <h3>Future Roadmap</h3>
@@ -51,6 +108,8 @@
         <li>Offline-first synchronization workflows for eHP and clinic vaults</li>
         <li>Configurable Extractor/Loader profiles for different EHR systems</li>
         <li>Support for encounter summaries, immunization tracking, and school health workflows</li>
+        <li>Expanded authentication options (local-only, USB-only, optional cloud sync)</li>
+        <li>Improved OneDrive integration for multi-vault management</li>
     </ul>
 
     <h3>GitHub Repository</h3>
