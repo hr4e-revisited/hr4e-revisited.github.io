@@ -123,6 +123,43 @@
     </p>
 </section>
 
+<!-- RUNNING LOCALLY -->
+<section class="section">
+    <h3>Running this version of Studio Locally</h3>
+
+    <p>
+        The repository README contains full developer instructions. If the README looks adequate, the
+        steps below summarize what a WebStorm-capable developer needs to do to clone and run the alpha:
+    </p>
+
+    <ul>
+        <li><strong>Clone the repo</strong> — `git clone https://github.com/hr4e-revisited/studio-web.git` and open the project in WebStorm.</li>
+        <li><strong>Install dependencies</strong> — run `npm install` (the project uses a lightweight dev server and MSAL client libraries).</li>
+        <li><strong>Copy auth template</strong> — duplicate `authConfig.example.js` to `authConfig.js` and fill in the Azure app values (clientId, authority, redirectUri). Do not commit secrets.</li>
+        <li><strong>Start the dev server</strong> — run `npm run dev` (or use WebStorm’s npm runner). Studio will be available at `http://localhost:5173/` (or the port shown by the dev server).</li>
+        <li><strong>Authenticate</strong> — sign in with a Microsoft account via the MSAL popup; Studio will request OneDrive access and receive an access token for file operations.</li>
+        <li><strong>Create or point to a vault</strong> — create a vault folder in your OneDrive or use the Studio UI to create one; the app reads/writes CCD-subset documents there.</li>
+        <li><strong>Notes for developers</strong> — the alpha is a single-page prototype (Editor/Viewer + Extractor/Loader). Expect tight coupling; modularization is planned for future releases.</li>
+    </ul>
+
+    <p>
+        For complete, authoritative instructions (including environment variables, optional build steps,
+        and troubleshooting), see the repository README:
+    </p>
+
+    <p>
+        <a href="https://github.com/hr4e-revisited/studio-web/blob/main/README.md" style="color:#1f4b99;">
+            hr4e-revisited/studio-web README
+        </a>
+    </p>
+
+    <p>
+        <strong>Repository visibility note:</strong> making the repo public allows anyone to clone it. Public
+        repositories still prevent direct pushes from non-collaborators; developers who need to contribute
+        should fork the repo and open pull requests or be added as collaborators with write access.
+    </p>
+</section>
+
 <footer>
     {% include footer.html %}
 </footer>
