@@ -160,6 +160,81 @@
     </p>
 </section>
 
+<section class="section">
+    <h3>Exporting your electronic health record as a collection of CCDs from Epic</h3>
+
+    <p>
+        It's fine to hand‑enter HR4E‑ccdsubset data manually from the Editor/Viewer, but that can get
+        tiresome. Alternatively, you may be able to upload your personal health data from a standard
+        Epic EHR extract. How do you generate that extract? Below are practical steps (based on the
+        Sutter Health / MyChart flow) that produce a ZIP containing CCD XML files you can point the
+        Extractor/Loader at for experimentation. Many Epic sites provide an analogous export; if you
+        cannot find these options in your portal, contact your medical records office and request a
+        CCD/CCDA export.
+    </p>
+
+    <p>
+        <strong>Disclaimer:</strong> experience with the deterministic HR4E Exporter/Loader is <strong>VERY</strong> limited.
+        This has been tried with a small number of visits at Sutter Health, but this may or may not work for you,
+        and may or may not work at the organization that manages your health record.
+    </p>
+
+    <ol>
+        <li>
+            <strong>Sign in to MyChart</strong> — Login to MyChart for the organization that maintains your
+            health record in Epic.
+        </li>
+
+        <li>
+            <strong>Open the Sharing Hub</strong> — Navigate to the area of the portal labeled something
+            like <em>Sharing Hub</em> (or a similarly named section for sharing or exporting records).
+        </li>
+
+        <li>
+            <strong>Start the export</strong> — Find and click <em>Download health and visit summary</em>.
+        </li>
+
+        <li>
+            <strong>Choose visits</strong> — On the export page you should see three tabs: <em>Single Visit</em>,
+            <em>Date Range</em>, and <em>All Visits</em>. Select the tab and date range that will include
+            roughly 10–20 visits (or the set you want), then click <em>Continue</em>.
+        </li>
+
+        <li>
+            <strong>Preview and request the export</strong> — You will arrive at a <em>Preview documents</em> page.
+            Click <em>Download All</em> to request the export.
+        </li>
+
+        <li>
+            <strong>Wait for the ZIP and locate the CCDs</strong> — The portal may take some time (sometimes
+            up to 24 hours) to prepare the export. When ready you will receive a ZIP file. Inside the ZIP
+            you will find files named like <code>DOC0001.xml</code>, <code>DOC0002.xml</code>, etc. Those
+            XML files are the CCD/CCDA documents. Unzip the archive and point the Extractor/Loader at the
+            top-level directory created by the unzip operation; the loader will discover the CCD XML files
+            and process them.
+        </li>
+
+        <li>
+            <strong>(Optional) View the CCDs in Safari</strong> — On macOS, Apple’s Safari can be pointed at
+            the unzipped XML files and will often render them using the accompanying stylesheets included
+            in the export. This provides a quick human-readable preview of each CCD without additional tools.
+            Note that other commercial browsers typically do not apply the same stylesheets automatically.
+        </li>
+    </ol>
+
+    <p>
+        After unzipping, the Extractor/Loader should be pointed at the highest-level directory produced by
+        the unzip operation. The loader will recursively discover CCD XML files (DOC0001.xml, DOC0002.xml, …)
+        and convert them into the HR4E-ccdsubset format for use in Studio. If you encounter files that are
+        not recognized, check that the export contains standard CCD/CCDA XML documents and that the files
+        are not encrypted or wrapped in a proprietary container.
+    </p>
+
+    <p>
+        If your portal does not offer a CCD/CCDA export, contact the medical records office and request a
+        standard CCD/CCDA extract for personal use; most Epic-based organizations can provide this on request.
+    </p>
+</section>
 <footer>
     {% include footer.html %}
 </footer>
